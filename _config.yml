@@ -5,6 +5,8 @@
 # Name of your site (displayed in the header)
 name: Simina's blog
 
+theme: minima
+
 #
 # Flags below are optional
 #
