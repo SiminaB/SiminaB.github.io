@@ -3,11 +3,14 @@ layout: post
 title:  "2018: Year in review"
 ---
 
-This year has been a really good year workwise! I'm going to spend a bit of time towards the end of the year reflecting on it and maybe humblebragging a bit.
+This year has been a really good year workwise! 
+Since it's close to the end of the year, I'm going to spend a bit of time on it.
+It may sound like I am humblebragging a bit and if it does, that is because I am:
 At the very beginning of the year, I decided that I would keep a running list of achievements, given the nature of research - basically, the fact that projects take
-seemingly take forever and it often feels like one never gets anything done and rejection is always right around the corner. I wanted something to cheer me up a bit in between the
-endless waiting, including products that
-weren't necessarily full-fledged papers and seemingly more minor things like talk acceptances, big grant submissions (not just acceptances, since those are way rare!) 
+seemingly take forever and it often feels like one never completes anything and rejection is always right around the corner. 
+I specifically wanted something to cheer me up a bit in between the long stretches of waiting, so I included products that
+weren't necessarily full-fledged papers and seemingly more minor things like talk acceptances, 
+big grant submissions (not just acceptances, since those are way rare!) 
 etc. Here is my list:
 
 * I had a tweet/blog post on regression that [kind of went viral](https://twitter.com/siminaboca/status/951201399563587589) Where viral = viral for me. I was really happy about this, since these were thoughts that
@@ -18,7 +21,7 @@ about how different methods should be applied and what their caveats are. It was
 I had actually read a preprinted version of the paper and had a comment on an example that considered Duchenne muscular dystrophy, a disease that I have worked on before. I asked
 [Casey Greene](https://twitter.com/GreeneScientist) about it and he encouraged me to go ahead and make the edits on GitHub. I ended up contributing enough to the new version to be listed as an author. (January 19)
 * My [commentary comparing biocuration to systematic reviews](http://ascopubs.org/doi/full/10.1200/PO.17.00175) was accepted in JCO PO. I felt good about this since this was again something that I had been thinking about for a while now so I decided at some point last
-year to just put my thoughts on paper. I had some general ideas so came up with a short draft, then recruited some other super knowledgeable folks to flesh out the details. This is the first time this kind of work has come
+year to just put my thoughts on paper. I had some general ideas so came up with a short draft, then recruited some other super knowledgeable folks to flesh out the details. This is the first time this kind of project has come
 together for me. (January 19)
 * By the end of February, I already had 4 papers accepted (the "deep review," the commentary paper, 2 other collaborative papers.)
 * I gave a talk a Brown University, invited by my friend, former NCI postdoc colleague, and coauthor Orestis Panagiotou. (April 10)
@@ -39,6 +42,13 @@ officially out. (October 24)
 * I posted a [preprint](https://www.biorxiv.org/content/early/2018/11/23/475590) for metabolic biomarkers in a mouse model of Duchenne muscular dystrophy, which I'm a co-first author on. (November 23)
 * I read 8 books! Hoping to finish one more before the end of the year. They included books about science, like The Emperor of All Maladies, She Had her Mother's Laugh and The Immortal Life of Henrietta Lacks, and book about time management and people management, like Deep
 Work and 168 Hours.
+
+As I said before, this has been a really good year! One thing that I wanted to note is this was definitely an exception in terms of the huge numbers of papers that have been accepted ("huge" for me, I know that there are many folks out there who are way more productive). 
+However, most of the projects that were completed were things that I had started a long time ago. The FDR paper, for example, originated in an idea that Jeff had, based on some of my PhD work, that he wrote a [blog post](https://simplystatistics.org/2013/06/13/false-discovery-rate-regression-cc-nsas-prism/) on... check out the date! June 13, 2013. Just for perspective, since
+that time, I switched from being a postdoc at NCI to being faculty at [ICBI](https://icbi.georgetown.edu/), I had a second child, and [Simona Halep won the French Open](https://www.bbc.com/sport/tennis/44425403). Of course, the work took a fair amount of time to complete,
+but a large amount of time was also spent looking for a good home for the paper. In fact, we first posted a [preprint](https://www.biorxiv.org/content/early/2015/12/30/035675) of what's now a super outdated version of that project on December 30, 2015.
+make note of the citation by Stephanie, JSM etc
+
 
 
 
