@@ -20,7 +20,7 @@ I had actually read a preprinted version of the paper and had a comment on an ex
 * My [commentary comparing biocuration to systematic reviews](http://ascopubs.org/doi/full/10.1200/PO.17.00175) was accepted in JCO PO. I felt good about this since this was again something that I had been thinking about for a while now so I decided at some point last
 year to just put my thoughts on paper. I had some general ideas so came up with a short draft, then recruited some other super knowledgeable folks to flesh out the details. This is the first time this kind of work has come
 together for me. (January 19)
-* By the end of February, I had alreadyhad 4 papers accepted (the "deep review," the commentary paper, 2 other collaborative papers.)
+* By the end of February, I already had 4 papers accepted (the "deep review," the commentary paper, 2 other collaborative papers.)
 * I gave a talk a Brown University, invited by my friend, former NCI postdoc colleague, and coauthor Orestis Panagiotou. (April 10)
 * Another paper that was accepted by JCO PO that I was a co-author on, considering an [eye-tracking study](http://ascopubs.org/doi/10.1200/PO.17.00296) for usability of molecular diagnostic reports. I was involved in the original study design and grant submission for it
 and it was led by a former ICBI postdoc, Vishakha Sharma. It was also a really important project for the center and I was very happy to see it completed. (May 4)
@@ -32,6 +32,14 @@ funded, I will apply for sure next year as well! (September 28)
 * By mid-October, I had 6 papers accepted (the ones mentioned above plus one more collaborative paper.)
 * My paper with my former PhD adviser [Jeff Leek](http://jtleek.com/) on estimating false-discovery rates conditional on covariates was finally accepted by PeerJ. More on this paper below. For now - let me just say this was a very long process and it was such a relief to have it
 officially out. (October 24)
+* I got a talk accepted at the [CSHL Biological Data Science](https://meetings.cshl.edu/meetings.aspx?meet=DATA&year=18) meeting ([slides here](https://github.com/SiminaB/Presentations/blob/master/CSHL%20Bio%20Data%20Science%202018/Boca_CSHL.pdf)).
+(notified on October 10, talk on November 9)
+* I also got a talk accepted at the [AMIA 2019 Informatics Summit](https://www.amia.org/summit2019). (notified on October 30, conference will be in March 2019)
+* I was also invited to give talks next year to the Breast Oncology Program at UCSF and the Bioconductor conference, which will be in New York.  (invited in November)
+* I posted a [preprint](https://www.biorxiv.org/content/early/2018/11/23/475590) for metabolic biomarkers in a mouse model of Duchenne muscular dystrophy, which I'm a co-first author on. (November 23)
+* I read 8 books! Hoping to finish one more before the end of the year. They included books about science, like The Emperor of All Maladies, She Had her Mother's Laugh and The Immortal Life of Henrietta Lacks, and book about time management and people management, like Deep
+Work and 168 Hours.
+
 
 
 
