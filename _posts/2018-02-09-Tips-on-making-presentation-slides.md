@@ -1,3 +1,8 @@
+---
+layout: post
+title:  "Tips on making presentation slides"
+---
+
 Below is a non-exhaustive list of recommendation on making presentation slides, focusing on 
 presenting biostatistics or bioinformatics projects. There are many amazing resources out there. I internalized much
 of the advice given to me by many awesome official and unofficial mentors (Jeff Leek, Giovanni

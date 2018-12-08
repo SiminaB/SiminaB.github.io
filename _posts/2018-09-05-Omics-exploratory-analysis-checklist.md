@@ -1,3 +1,8 @@
+---
+layout: post
+title:  "Omics exploratory data analysis checklist"
+---
+
 This is a non-exhaustive checklist of exploratory data analysis (EDA) checks I do for omics datasets + any associated demographic or meta-data, as a first step (after some basic reading in the data and basic preprocessing.)
 There are many resources for this. I am personally indebted to my Rafa Irizarry, Jeff Leek, Roger Peng, Karl Broman among others for many of these tips.
 Note that I tend to spend maybe 90% of total analysis time doing this kind of EDA and don't usually start doing much modeling until I do at least an initial first pass of EDA and discuss 
