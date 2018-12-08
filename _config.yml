@@ -7,7 +7,7 @@ name: Simina's blog
 
 github: [metadata]
 
-theme: minimal
+theme: minima
 
 #
 # Flags below are optional
