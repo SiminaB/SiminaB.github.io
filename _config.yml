@@ -51,7 +51,7 @@ kramdown:
     css_class: 'highlight'
 
 # Theme:
-theme: Merlot
+theme: minima
 
 # Set the Sass partials directory, as we're using @imports
 sass:
