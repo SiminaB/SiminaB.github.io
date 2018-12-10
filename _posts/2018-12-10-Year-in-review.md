@@ -27,7 +27,7 @@ year to just put my thoughts on paper. I had some general ideas so came up with 
 together for me. (January 19)
 * By the end of February, I already had 4 papers accepted (the "deep review," the commentary paper, 2 other collaborative papers.)
 * I gave a talk a Brown University, invited by my friend, former NCI postdoc colleague, and coauthor [Orestis Panagiotou](https://twitter.com/orpanag). (April 10)
-* Another paper that was accepted by JCO PO that I was a co-author on, considering an [eye-tracking study](http://ascopubs.org/doi/10.1200/PO.17.00296) for usability of molecular diagnostic reports. I was involved in the original study design and grant submission for it
+* Another paper was accepted by JCO PO that I was a co-author on, considering an [eye-tracking study](http://ascopubs.org/doi/10.1200/PO.17.00296) for usability of molecular diagnostic reports. I was involved in the original study design and grant submission for it
 and it was led by a former ICBI postdoc, [Vishakha Sharma](https://twitter.com/VishakhaSharma_). It was also a really important project for the center and I was very happy to see it completed. (May 4)
 * The supplement to my R21 grant was officially awarded! My R21 is funded through the [NCI Informatics Technology for Cancer Research (ITCR) program](https://nciphub.org/groups/itcr) and the supplement is for a collaboration with a group funded through the 
 Innovative Molecular Analysis Technologies (IMAT) program. I had applied for it last year so kind of wondered whether it was "fair" to list it as an accomplishment for the year. Then I decided that I might as well. (May 21)
