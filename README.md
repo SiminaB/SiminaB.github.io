@@ -1,3 +1,3 @@
 # SiminaB.github.io
 
-Repository for blogposts. Posts visible at https://siminab.github.io/.
+Repository for blog posts. Posts visible at https://siminab.github.io/.
