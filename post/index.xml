@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on A Hugo website</title>
+    <title>Posts on Simina blog</title>
     <link>/post/</link>
-    <description>Recent content in Posts on A Hugo website</description>
+    <description>Recent content in Posts on Simina blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Pre-test and post-test probabilities using Bayes&#39;s theorem</title>
-      <link>/2019/01/30/pre-test-and-post-test-probabilities-using-bayes-s-theorem/</link>
-      <pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/2019/01/30/pre-test-and-post-test-probabilities-using-bayes-s-theorem/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>2018: Year in review</title>
@@ -45,6 +36,15 @@
       
       <guid>/2018/02/09/tips-on-making-presentation-slides/</guid>
       <description>Below is a non-exhaustive list of recommendation on making presentation slides, focusing on presenting biostatistics or bioinformatics projects. There are many amazing resources out there. I internalized much of the advice given to me by many awesome official and unofficial mentors (Jeff Leek, Giovanni Parmigiani, Josh Sampson, Tom Louis, @theeffortreport with Roger Peng and Elizabeth Matsui, and @NSSDeviations with Hilary Parker and Roger Peng, to list a few) and the goal here is to pass some of it along to my students rather than to come up with a comprehensive list.</description>
+    </item>
+    
+    <item>
+      <title>Everything in statistical modeling can be seen as a regression</title>
+      <link>/2018/01/10/everything-in-statistical-modeling-can-be-seen-as-a-regression/</link>
+      <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/01/10/everything-in-statistical-modeling-can-be-seen-as-a-regression/</guid>
+      <description>Regression concepts connected to loss functions and conditional means and mediansMore about the OLS fit: Linear algebra and geometric interpretationT-tests, ANOVA, and all the rest: Hypothesis testing in linear modelsFrom weighted regression to generalized linear modelsSmoothing and regressionRegression and machine learningThis is of course a bit of an exaggeration! It also depends on the way things are emphasized in, for example, statisticalgraduate programs.</description>
     </item>
     
   </channel>
