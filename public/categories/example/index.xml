@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Example on A Hugo website</title>
+    <link>/categories/example/</link>
+    <description>Recent content in Example on A Hugo website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 10 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/example/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>2018: Year in review</title>
+      <link>/2018/12/10/year-in-review/</link>
+      <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/12/10/year-in-review/</guid>
+      <description>Research careers often entail relatively few concrete achievements over relatively long periods of time. Even when something good happens, it feels like rejection is right around the corner. To cheer up during the long stretches of waiting and the many rejections, I decided at the beginning of 2018 to keep a running list of achievements. I wanted to include products that weren&amp;rsquo;t necessarily full-fledged papers, including blog posts, talk acceptances, big grant submissions (not just acceptances, since those are way rare!</description>
+    </item>
+    
+    <item>
+      <title>Omics exploratory data analysis checklist</title>
+      <link>/2018/09/05/omics-exploratory-data-analysis-checklist/</link>
+      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/09/05/omics-exploratory-data-analysis-checklist/</guid>
+      <description>This is a non-exhaustive checklist of exploratory data analysis (EDA) checks I do for omics datasets + any associated demographic or meta-data, as a first step (after some basic reading in the data and basic preprocessing.) There are many resources for this. I am personally indebted to my Rafa Irizarry, Jeff Leek, Roger Peng, Karl Broman among others for many of these tips. Note that I tend to spend maybe 90% of total analysis time doing this kind of EDA and don&amp;rsquo;t usually start doing much modeling until I do at least an initial first pass of EDA and discuss results with the rest of the team and/or investigators who generated the data/provided the samples.</description>
+    </item>
+    
+    <item>
+      <title>Tips on making presentation slides</title>
+      <link>/2018/02/09/tips-on-making-presentation-slides/</link>
+      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/09/tips-on-making-presentation-slides/</guid>
+      <description>Below is a non-exhaustive list of recommendation on making presentation slides, focusing on presenting biostatistics or bioinformatics projects. There are many amazing resources out there. I internalized much of the advice given to me by many awesome official and unofficial mentors (Jeff Leek, Giovanni Parmigiani, Josh Sampson, Tom Louis, @theeffortreport with Roger Peng and Elizabeth Matsui, and @NSSDeviations with Hilary Parker and Roger Peng, to list a few) and the goal here is to pass some of it along to my students rather than to come up with a comprehensive list.</description>
+    </item>
+    
+  </channel>
+</rss>

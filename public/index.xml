@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>A Hugo website</title>
+    <link>/</link>
+    <description>Recent content on A Hugo website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Pre-test and post-test probabilities using Bayes&#39;s theorem</title>
+      <link>/2019/01/30/pre-test-and-post-test-probabilities-using-bayes-s-theorem/</link>
+      <pubDate>Wed, 30 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/30/pre-test-and-post-test-probabilities-using-bayes-s-theorem/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2018: Year in review</title>
+      <link>/2018/12/10/year-in-review/</link>
+      <pubDate>Mon, 10 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/12/10/year-in-review/</guid>
+      <description>Research careers often entail relatively few concrete achievements over relatively long periods of time. Even when something good happens, it feels like rejection is right around the corner. To cheer up during the long stretches of waiting and the many rejections, I decided at the beginning of 2018 to keep a running list of achievements. I wanted to include products that weren&amp;rsquo;t necessarily full-fledged papers, including blog posts, talk acceptances, big grant submissions (not just acceptances, since those are way rare!</description>
+    </item>
+    
+    <item>
+      <title>Omics exploratory data analysis checklist</title>
+      <link>/2018/09/05/omics-exploratory-data-analysis-checklist/</link>
+      <pubDate>Wed, 05 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/09/05/omics-exploratory-data-analysis-checklist/</guid>
+      <description>This is a non-exhaustive checklist of exploratory data analysis (EDA) checks I do for omics datasets + any associated demographic or meta-data, as a first step (after some basic reading in the data and basic preprocessing.) There are many resources for this. I am personally indebted to my Rafa Irizarry, Jeff Leek, Roger Peng, Karl Broman among others for many of these tips. Note that I tend to spend maybe 90% of total analysis time doing this kind of EDA and don&amp;rsquo;t usually start doing much modeling until I do at least an initial first pass of EDA and discuss results with the rest of the team and/or investigators who generated the data/provided the samples.</description>
+    </item>
+    
+    <item>
+      <title>Tips on making presentation slides</title>
+      <link>/2018/02/09/tips-on-making-presentation-slides/</link>
+      <pubDate>Fri, 09 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/02/09/tips-on-making-presentation-slides/</guid>
+      <description>Below is a non-exhaustive list of recommendation on making presentation slides, focusing on presenting biostatistics or bioinformatics projects. There are many amazing resources out there. I internalized much of the advice given to me by many awesome official and unofficial mentors (Jeff Leek, Giovanni Parmigiani, Josh Sampson, Tom Louis, @theeffortreport with Roger Peng and Elizabeth Matsui, and @NSSDeviations with Hilary Parker and Roger Peng, to list a few) and the goal here is to pass some of it along to my students rather than to come up with a comprehensive list.</description>
+    </item>
+    
+    <item>
+      <title>A Plain Markdown Post</title>
+      <link>/2016/12/30/a-plain-markdown-post/</link>
+      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
+      
+      <guid>/2016/12/30/a-plain-markdown-post/</guid>
+      <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
+ You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Thu, 05 May 2016 21:48:51 -0700</pubDate>
+      
+      <guid>/about/</guid>
+      <description>This is a &amp;ldquo;hello world&amp;rdquo; example website for the blogdown package. The theme was forked from @jrutheiser/hugo-lithium-theme and modified by Yihui Xie.</description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>/2015/07/23/hello-r-markdown/</link>
+      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
+      
+      <guid>/2015/07/23/hello-r-markdown/</guid>
+      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
+    </item>
+    
+    <item>
+      <title>Lorem Ipsum</title>
+      <link>/2015/01/01/lorem-ipsum/</link>
+      <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
+      
+      <guid>/2015/01/01/lorem-ipsum/</guid>
+      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
+    </item>
+    
+  </channel>
+</rss>
