@@ -44,7 +44,7 @@
       <pubDate>Wed, 10 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>/2018/01/10/everything-in-statistical-modeling-can-be-seen-as-a-regression/</guid>
-      <description>Regression concepts connected to loss functions and conditional means and mediansMore about the OLS fit: Linear algebra and geometric interpretationT-tests, ANOVA, and all the rest: Hypothesis testing in linear modelsFrom weighted regression to generalized linear modelsSmoothing and regressionRegression and machine learningThis is of course a bit of an exaggeration! It also depends on the way things are emphasized in, for example, statisticalgraduate programs.</description>
+      <description>This is of course a bit of an exaggeration! It also depends on the way things are emphasized in, for example, statisticalgraduate programs. I know that my own training program was highly focused on seeing much of statistics as either aspecial case or a generalization of some kind of linear regression model. I kind of love this view and try to emphasize it whenever I canto collaborators, although I do admit that sometimes you have to start from special cases in order to build up the whole.</description>
     </item>
     
   </channel>
