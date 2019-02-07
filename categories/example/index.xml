@@ -6,10 +6,19 @@
     <description>Recent content in Example on Simina blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Dec 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/example/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Bayes&#39;s rule in practice: CF carrier testing</title>
+      <link>/2019/02/07/bayes-s-rule-in-practice-cf-carrier-testing/</link>
+      <pubDate>Thu, 07 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/02/07/bayes-s-rule-in-practice-cf-carrier-testing/</guid>
+      <description>Cystic fibrosis (CF) is a recessive genetic disorder which is the most common life-limiting genetic disorder amongst Caucasians. I have written before about how improved management of the disease has led to substantial improvements in life expectancy and quality of life, in large part due to its inclusion in newborn screening programs. More recently, it is becoming increasingly common to also offer pregnant women a genetic test to see if they are carriers of a mutation in the CFTR gene.</description>
+    </item>
     
     <item>
       <title>2018: Year in review</title>

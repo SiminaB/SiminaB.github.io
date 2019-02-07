@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.53" />
+
+
+<title>Bayes&#39;s rule in practice: CF carrier testing - Simina blog</title>
+<meta property="og:title" content="Bayes&#39;s rule in practice: CF carrier testing - Simina blog">
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="https://sites.google.com/georgetown.edu/siminaboca/">Academic site</a></li>
+    
+    <li><a href="https://github.com/SiminaB/">GitHub</a></li>
+    
+    <li><a href="https://icbi.georgetown.edu/">ICBI</a></li>
+    
+    <li><a href="https://healthinformatics.georgetown.edu/">MS in HIDS</a></li>
+    
+    <li><a href="https://twitter.com/siminaboca">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">6 min read</span>
+    
+
+    <h1 class="article-title">Bayes&#39;s rule in practice: CF carrier testing</h1>
+
+    
+    <span class="article-date">2019/02/07</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>Cystic fibrosis (CF) is a recessive genetic disorder which is <a href="https://www.thoracic.org/patients/lung-disease-week/2016/cystic-fibrosis-week/general-info.php">the most common life-limiting genetic disorder amongst Caucasians</a>. I have written <a href="https://blogs.commons.georgetown.edu/icbi/an-injection-of-optimism-into-biomedical-research-part-2-improved-management-for-two-textbook-diseases/">before</a> about how improved management of the disease has led to substantial improvements in life expectancy and quality of life, in large part due to its inclusion in newborn screening programs. More recently, it is becoming increasingly common to also offer pregnant women a genetic test to see if they are carriers of a mutation in the <em>CFTR</em> gene. Although the disease affects between <a href="https://ghr.nlm.nih.gov/condition/cystic-fibrosis">1 in 2,500 and 3,500 live births among Caucasians in the US</a>, due to recessive inheritance, about 1 in 25 Caucasians actually carry a disease mutation. This is because a child must have two copies of a mutated gene in order to develop the disease, so two parents who are carriers have a 1 in 4 chance of having a child with CF: <span class="math inline">\(\frac{1}{4}\times\frac{1}{25}\times\frac{1}{25} = \frac{1}{2500}\)</span>.</p>
+<p>When I was pregnant with my second child in 2015, I was offered genetic
+counseling and carrier testing for CF due to my and my husband’s ethnic backgrounds. (This was not offered to me when we had our first child in 2011, though I going to a different practice/hospital at that time; based on talking to other folks and my own experience, the number of genetic and other tests being offered to pregnant women has definitely increased during that time.) Different ethnicities have different prevalences of <em>CFTR</em> and other mutations, so this was based on our self-reported ethnicities and I assume that if we, say, we were both African-American, we would have been offered carrier testing for sickle-cell disease (a recessive disease which affects <a href="https://ghr.nlm.nih.gov/condition/sickle-cell-disease">between 1 in 365 and 1 in 500 African-Americans</a>) instead.</p>
+<p>When I got my test result back, this is what it showed:</p>
+<div class="figure">
+<img src="Cystic_fibrosis_carrier_test.jpg" alt="My cystic fibrosis carrier test results" />
+<p class="caption">My cystic fibrosis carrier test results</p>
+</div>
+<p>I do not have any family history of CF, so my chance of being a CF carrier went down from 1/25 to 1/240 (I will be using “Caucasian” and “Caucasian (non-Hispanic)” interchangeably from here on. I am aware that this is not technically correct and that categorizing ethnicity in general is a complex and sometimes fraught endeavor.)… Hmm… I was definitely happy that I my chance of being a CF carrier went down bya factor of almost 10, but as a statistician, I could not help nerding out on this great application of Bayes’s rule!</p>
+<p><a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes’s rule</a> gives the probability of event B happening given that event A happened in terms of the probability of event A happening given that event B happened. These types of probabilities (B given A and A given B) are called <em>conditional probabilities</em>. Bayes’s rule is usually written as:</p>
+<p><span class="math inline">\(P(B|A) = \frac{P(A|B)P(B)}{P(A)} = \frac{P(A|B)P(B)}{\sum_{B_j}P(A|B_j)P(B_j)},\)</span></p>
+<p>where <span class="math inline">\(\sum_{B_j}P(B_j) = 1, P(B_j) &gt; 0\)</span> for any <span class="math inline">\(j\)</span>.</p>
+<p>It is often applied in the context of diagnostic testing, which is exactly the context here! If an individual comes in to get tested for a specific disease (or in this case, for being a carrier for a specific disease), you can think of their probability of having it as being the prevalence of that disease in the population they come from. If a 50 year old man asks what his probability of having prostate cancer in, you would usually say that it’s the same as the percentage of 50 year old men who have prostate cancer. If you know more information about them or have a test you can use, then you can <em>update</em> the probability. In this case, my “baseline” probability of being a CF carrier was 1 in 25, since that is the prevalence in Caucasian individuals (Caveat 1: This is an estimate, so the actual prevalence may be somewhat larger or smaller. It also includes all Caucasians and many studies of Caucasians tend to oversample individuals of Northern European origin. I have not looked into this specific aspect in great detail though.)</p>
+<p>So we currently have P(Carrier) as 1 in 25, with an implicit conditioning on ethnicity (Caucasian). What the results above are saying is that P(Carrier|Negative test result) = <span class="math inline">\(\frac{1}{240}\)</span>. Abbreviating C = Carrier, - = negative test, we can apply Bayes’s rule to get:</p>
+<p><span class="math inline">\(P(\mbox{C}|\mbox{-}) = \frac{P(\mbox{-}|\mbox{C})P(\mbox{C})}{P(\mbox{-}|\mbox{C})P(\mbox{C})+P(\mbox{-}|\mbox{No C})P(\mbox{No C})}\)</span></p>
+<p>The “detection rate” of 90% is the probability that the test detects a mutation in someone who is actually a carrier, i.e. <span class="math inline">\(P(+|C)\)</span> (also known as the sensitivity of the test), among Caucasians. This means that the test is imperfect. Elsewhere in the report, they do state that they only consider 32 common mutations, so it is posible that someone may have a <em>CFTR</em> mutation which is not detected by this test. (Caveat 2: Note also the disclaimer at the top. One question here would be: Why not look at all mutations in <em>CFTR</em>? I can see three reasons here: a) cost b) accuracy - a test for fewer mutations may be more optimized in terms of error rates c) maybe most important - many mutations in <em>CFTR</em> are not in fact disease-causing; in some cases they are known to be benign, but in others, they have <a href="https://www.ncbi.nlm.nih.gov/clinvar/?term=CFTR%5Bgene%5D">“uncertain significance”</a>).</p>
+<p>At this point, we know <span class="math inline">\(P(C) = \frac{1}{25} = 0.04\)</span> and <span class="math inline">\(P(+|C)=0.90\)</span>. This means we also know <span class="math inline">\(P(\mbox{No C}) = 1-P(C) = 0.96\)</span> and <span class="math inline">\(P(-|C) = 1-P(+|C) = 1-0.90 = 0.10\)</span>. In order to get <span class="math inline">\(P(C|-)\)</span> with Bayes’s rule, we just need <span class="math inline">\(P(-|\mbox{No }C)\)</span>, also known as the test specificity. In this case, I actually think the test specificity is 1, or 100% (or very close to it). This means that individuals who are carriers should <em>never</em> get a positive test. Going back to the equation, we get:</p>
+<p><span class="math inline">\(P(\mbox{C}|\mbox{-}) = \frac{P(\mbox{-}|\mbox{C})P(\mbox{C})}{P(\mbox{-}|\mbox{C})P(\mbox{C})+P(\mbox{-}|\mbox{No C})P(\mbox{No C})} = \frac{0.10 \times 0.04}{0.10 \times 0.04 + 1 \times 0.96} = 0.00415\)</span></p>
+<p>This is very close to <span class="math inline">\(\frac{1}{240}=0.00417\)</span>, so it may well just be a difference in rounding or it may be that <span class="math inline">\(P(-|\mbox{No }C) = 0.995\)</span> instead of <span class="math inline">\(1\)</span>.</p>
+<p>So there you have it! This is really one of the best examples of the idea of pre-test and post-test probability of having an outcome or a disease.</p>
+<p>Three final notes:</p>
+<p>Note 1.The detection rate is also dependent on ethnicity and is presumably meant to maximize the test performance for the ethnic groups with highest prevalence, namely Ashkenazi Jewish and Caucasian (non-Hispanic). Note that an African-American individual would have an initial probability of 1 in 65 of being a carrier, about 2.5<span class="math inline">\(\times\)</span> lower than that of an Ashkenazi Jewish or Caucasian individual, but the detection rate for African-Americans is only 69%. After a negative test the probability of being a CF carrier goes down to 1 in 207, which is higher than the 1 in 834 in for the Ashkenazi and 1 in 240 for the Caucasian populations.</p>
+<p>Note 2. While a probability of being a CF carrier of 1 in 240 is pretty low, note that the probability of a child having CF with, say, two Caucasian parents without a history of CF, and one of them having had this test and tested negative, is even lower, at <span class="math inline">\(\frac{1}{4}\times\frac{1}{25}\times\frac{1}{240} = \frac{1}{24,000}\)</span>. However, while a positive test would result in a probability of being a CF carrier of 100%, a negative test can never result in a probability of 0%.</p>
+<p>Note 3. This is all based on estimates of both the prevalences within ethnic groups and also the properties of the test. I assume that the robustness of the test has been checked in various ways but it does include the disclaimer at the bottom “This interpretation is based on the”clinical and family relationship information provided and the current understanding of the molecular genetics of this condition."</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+
