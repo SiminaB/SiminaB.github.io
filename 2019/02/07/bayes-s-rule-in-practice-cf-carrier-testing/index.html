@@ -75,10 +75,7 @@
 <p>When I was pregnant with my second child in 2015, I was offered genetic
 counseling and carrier testing for CF due to my and my husband’s ethnic backgrounds. (This was not offered to me when we had our first child in 2011, though I going to a different practice/hospital at that time; based on talking to other folks and my own experience, the number of genetic and other tests being offered to pregnant women has definitely increased during that time.) Different ethnicities have different prevalences of <em>CFTR</em> and other mutations, so this was based on our self-reported ethnicities and I assume that if we, say, we were both African-American, we would have been offered carrier testing for sickle-cell disease (a recessive disease which affects <a href="https://ghr.nlm.nih.gov/condition/sickle-cell-disease">between 1 in 365 and 1 in 500 African-Americans</a>) instead.</p>
 <p>When I got my test result back, this is what it showed:</p>
-<div class="figure">
-<img src="Cystic_fibrosis_carrier_test.jpg" alt="My cystic fibrosis carrier test results" />
-<p class="caption">My cystic fibrosis carrier test results</p>
-</div>
+<p><img src="/post/2019-02-07-bayes-s-rule-in-practice-cf-carrier-testing_files/Cystic_fibrosis_carrier_test.jpg" /></p>
 <p>I do not have any family history of CF, so my chance of being a CF carrier went down from 1/25 to 1/240 (I will be using “Caucasian” and “Caucasian (non-Hispanic)” interchangeably from here on. I am aware that this is not technically correct and that categorizing ethnicity in general is a complex and sometimes fraught endeavor.)… Hmm… I was definitely happy that I my chance of being a CF carrier went down bya factor of almost 10, but as a statistician, I could not help nerding out on this great application of Bayes’s rule!</p>
 <p><a href="https://en.wikipedia.org/wiki/Bayes%27_theorem">Bayes’s rule</a> gives the probability of event B happening given that event A happened in terms of the probability of event A happening given that event B happened. These types of probabilities (B given A and A given B) are called <em>conditional probabilities</em>. Bayes’s rule is usually written as:</p>
 <p><span class="math inline">\(P(B|A) = \frac{P(A|B)P(B)}{P(A)} = \frac{P(A|B)P(B)}{\sum_{B_j}P(A|B_j)P(B_j)},\)</span></p>
