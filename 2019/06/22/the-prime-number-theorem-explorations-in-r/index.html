@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.53" />
+
+
+<title>The prime number theorem: Explorations in R - Simina blog</title>
+<meta property="og:title" content="The prime number theorem: Explorations in R - Simina blog">
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="https://sites.google.com/georgetown.edu/siminaboca/">Academic site</a></li>
+    
+    <li><a href="https://siminab.github.io/">Blog index</a></li>
+    
+    <li><a href="https://github.com/SiminaB/">GitHub</a></li>
+    
+    <li><a href="https://icbi.georgetown.edu/">ICBI</a></li>
+    
+    <li><a href="https://healthinformatics.georgetown.edu/">MS in HIDS</a></li>
+    
+    <li><a href="https://twitter.com/siminaboca">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">6 min read</span>
+    
+
+    <h1 class="article-title">The prime number theorem: Explorations in R</h1>
+
+    
+    <span class="article-date">2019/06/22</span>
+    
+
+    <div class="article-content">
+      
+
+<pre><code class="language-r">knitr::opts_chunk$set(echo = TRUE)
+</code></pre>
+
+<h2 id="prime-numbers">Prime numbers</h2>
+
+<p>A prime number is defined as a number greater than 1 that is only divisible by 1 and itself.
+Thus, 2, 3, 5, and 7 are all primes, but the following are not:</p>
+
+<p>4 = 2 x 2<br>
+6 = 3 x 2<br>
+8 = 2 x 2 x 2<br>
+9 = 3 x 3</p>
+
+<p>In fact, no even numbers greater than 2 are primes, given that they are all divisible by 2.
+As a result, primes are actually the &ldquo;building blocks&rdquo; of all other natural numbers via multiplication, since every number has a unique prime number decomposition (up to the order of the factors), known as the <a href="https://en.wikipedia.org/wiki/Fundamental_theorem_of_arithmetic">fundamental theorem of arithmetic</a>.</p>
+
+<p>Despite (or perhaps because of!) their fundamental nature, prime numbers are unwieldy to work with and it is often difficult to prove mathematical facts about them. In fact two of the most famous mathematical conjectures (unsolved problems) are actually about primes:</p>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Goldbach's_conjecture">The Goldbach conjecture</a>: Every even number greater than 2 can be written as a sum of 2 primes (4 = 2+2, 6 = 3+3, 8 = 3+5 etc)</li>
+<li><a href="https://en.wikipedia.org/wiki/Twin_prime#Polignac's_conjecture">The twin prime conjecture</a>: There are an infinite number of primes exactly 2 apart (such as 3 and 5, 5 and 7, 11 and 13 etc)</li>
+</ul>
+
+<h2 id="the-prime-number-theorem">The prime number theorem</h2>
+
+<p>One of the most famous results about prime numbers that has been proven is the <a href="https://en.wikipedia.org/wiki/Prime_number_theorem">prime number theorem</a>, which gives the asymptotic distribution of prime numbers. The mathematical statement is that:</p>
+
+<p><strong>$\pi(x)$ ~ $x/log(x)$, where $\pi(x)$ is the number of primes less than a real number x and $log(x)$ is the logarithm of x in base e.</strong></p>
+
+<p>The interpretation of the &ldquo;~&rdquo; notation is that as x goes towards infinity (gets larger),
+$\pi(x)$ asymptotically approaches $x/log(x)$, meaning that the limit of $\pi(x)/[x/log(x)]$ is 1.
+Another way of stating this is that the probability of any integer less than or equal to N being a prime is close to $1/log(N)$ for large values of $N$. This is because the fraction of integers less than or equal to N that are primes is $\pi(N)/N$, which is equal to the probability of picking out a prime when choosing a number between 1 and N.</p>
+
+<h2 id="prime-numbers-in-r">Prime numbers in R</h2>
+
+<p>I was very happy to see that the R statistical programming language actually has a <a href="https://cran.r-project.org/web/packages/primes/index.html">library that deals with primes</a>. I took a look at it and it relies on underlying code written in C++ to do an exhaustive search of whether a number is a prime (when considering a natural number $N$, you only need to search for primes up to $\sqrt{N}$), so it&rsquo;s actually pretty fast!</p>
+
+<p>We first load the prime library:</p>
+
+<pre><code class="language-r">library(primes)
+</code></pre>
+
+<h3 id="generate-primes">Generate primes</h3>
+
+<p>As an example, we generate all primes between 2 and 50:</p>
+
+<pre><code class="language-r">generate_primes(2,50)
+</code></pre>
+
+<h3 id="plot-prime-numbers-on-an-array">Plot prime numbers on an array</h3>
+
+<p>We can plot prime numbers on an array. Below, we show the first 2,500 numbers as a 50 x 50 array, with the non-primes in grey and the primes in black:</p>
+
+<pre><code class="language-r">library(ggplot2)
+
+##Make a 50 x 50 array
+array_50_50 &lt;- expand.grid(Row=1:50,Column=1:50)
+##add the numbers corresponding to cells
+array_50_50$Number &lt;- 1:50^2
+##add whether each number is a prime
+array_50_50$Prime &lt;- is_prime(array_50_50$Number)
+head(array_50_50)
+
+ggplot(array_50_50, aes(Column, Row, col=Prime)) +
+  geom_point() +
+  scale_color_manual(values=c(&quot;grey&quot;, &quot;black&quot;))
+
+</code></pre>
+
+<h3 id="explore-the-prime-number-theorem-in-r">Explore the prime number theorem in R</h3>
+
+<p>The prime number theorem gives us an idea of the density of primes among all numbers, so the density of the black dots among all dots.
+The actual number of primes in the array above is <code>r sum(array_50_50$Prime)</code>, whereas the number
+predicted by the prime number theorem is 2500/log(2500) = <code>r 2500/log(2500)</code>.
+To understand the theorem a bit better, we can create function to obtain the number of primes less than or equal to a certain value:</p>
+
+<pre><code class="language-r">pi_nr_primes &lt;- function(x)
+{
+  sapply(x, function(x){length(generate_primes(1,x))})
+}
+</code></pre>
+
+<p>We now plot $\pi(x)$ for values between 2 and 2,500, with the orange line indicating the identity line:</p>
+
+<pre><code class="language-r">x &lt;- 2:2500
+
+plot(pi_nr_primes(x) ~ x,
+     ylab=expression(pi(x)))
+abline(0,1, col=&quot;#E69F00&quot;, lwd=2)
+text(350,200, &quot;y=x&quot;, col=&quot;#E69F00&quot;)
+</code></pre>
+
+<p>We add $x/log(x)$ to the plot in blue:</p>
+
+<pre><code class="language-r">x_over_log_x &lt;- x/log(x)
+
+plot(pi_nr_primes(x) ~ x,
+     ylab=expression(pi(x)))
+abline(0,1, col=&quot;#E69F00&quot;, lwd=2)
+lines(x_over_log_x ~ x, col=&quot;#56B4E9&quot;,lwd=2)
+text(350,200, &quot;y=x&quot;, col=&quot;#E69F00&quot;)
+text(1000,100, &quot;y=x/log(x)&quot;, col=&quot;#56B4E9&quot;)
+
+</code></pre>
+
+<p>It does not look like $\pi(x)$ gets closer to $x/log(x)$ as $x$ increases, but note that the prime number theorem is actually about their <em>ratio</em>, not their <em>difference.</em> As a result, we plot the ratio instead, with the green line indicating 1:</p>
+
+<pre><code class="language-r">y &lt;- pi_nr_primes(x)/x_over_log_x
+plot(y ~ x,
+     ylab=expression(pi(x)/(x/log(x))))
+abline(h=1, col=&quot;#009E73&quot;, lwd=2)
+
+</code></pre>
+
+<p>It still looks like $\pi(x)/[x/log(x)]$ may flatten i.e. asymptote at a value higher than 1. In fact, pi(2500)/[2500/log(2500)] = <code>r pi_nr_primes(2500)/(2500/log(2500))</code>. If we go up to 10,000,
+however, we get <code>r pi_nr_primes(10000)/(10000/log(10000))</code>. At 1,000,000, it becomes
+<code>r pi_nr_primes(10^6)/(10^6/log(10^6))</code> and at a 100,000,000 (warning! this takes 40 seconds on my laptop) it becomes <code>r pi_nr_primes(10^8)/(10^8/log(10^8))</code>. I&rsquo;m not sure we can really get to much higher numbers than that in R, but we know for a fact from graduate-level number theory that the limit is indeed 1 as x goes to infinity.</p>
+
+<p>It would not make sense to make a plot for all points up to 100,000,000, because it would take an extraordinarily long time and also we would get a lot of overlapping points. Instead, we could randomly sample 2,500 points between 1 and 100,000,000 and make this plot for them. That was also causing my laptop to massively stall, so I had to be happy with looking at 1 to 1,000,000 (which also took over 1 minute to run):</p>
+
+<pre><code class="language-r">x &lt;- 1:(10^6)
+set.seed(31048) ##set the seed so the same numbers are sampled each time
+x_sample &lt;- sample(x, 2500)
+x_over_log_x_sample &lt;- x_sample/log(x_sample)
+
+y &lt;- pi_nr_primes(x_sample)/x_over_log_x_sample
+</code></pre>
+
+<p>If we plot this to be on the same scale as before, it can be hard to see the decrease:</p>
+
+<pre><code class="language-r">plot(y ~ x_sample,
+     ylab=expression(pi(x)/(x/log(x))),
+     ylim=c(0,max(pi_nr_primes(2:2500)/(2:2500/log(2:2500)))))
+abline(h=1, col=&quot;#009E73&quot;, lwd=2)
+</code></pre>
+
+<p>However, if we plot just the values over 2,500, it is easier to see that there is an overall decrease, until it gets between 1.08 and 1.09:</p>
+
+<pre><code class="language-r">plot(y[x_sample &gt; 2500] ~ x_sample[x_sample &gt; 2500],
+     ylab=expression(pi(x)/(x/log(x))))
+abline(h=1, col=&quot;#009E73&quot;, lwd=2)
+</code></pre>
+
+<h3 id="probability-interpretation-of-the-prime-number-theorem-in-r">Probability interpretation of the prime number theorem in R</h3>
+
+<p>Let&rsquo;s also take a quick look at the probability interpretation of the prime number theorem.
+Thus, let&rsquo;s sample 10,000 numbers with replacement from the first 2,500 numbers:</p>
+
+<pre><code class="language-r">set.seed(4028502)
+sample_from_1_to_2500 &lt;- sample(1:2500, 10000, replace = TRUE)
+</code></pre>
+
+<p>The probability that each sampled number is a prime is exactly $\pi(2500)/2500$ = <code>r pi_nr_primes(2500)/2500</code> but it can also be approximated as the number of &ldquo;successes&rdquo; in 10,000
+trials, where a &ldquo;success&rdquo; is being a prime number. We can do this as follows:</p>
+
+<pre><code class="language-r">sample_of_primes &lt;- is_prime(sample_from_1_to_2500)
+sum(sample_of_primes)/10000
+</code></pre>
+
+<p>This number is close to <code>r pi_nr_primes(2500)/2500</code>. The approximation from the prime number is
+1/log(2500) = <code>r 1/log(2500)</code>.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

@@ -6,10 +6,24 @@
     <description>Recent content in Example on Simina blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 07 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/example/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The prime number theorem: Explorations in R</title>
+      <link>/2019/06/22/the-prime-number-theorem-explorations-in-r/</link>
+      <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/22/the-prime-number-theorem-explorations-in-r/</guid>
+      <description>knitr::opts_chunk$set(echo = TRUE)  Prime numbers A prime number is defined as a number greater than 1 that is only divisible by 1 and itself. Thus, 2, 3, 5, and 7 are all primes, but the following are not:
+4 = 2 x 2
+6 = 3 x 2
+8 = 2 x 2 x 2
+9 = 3 x 3
+In fact, no even numbers greater than 2 are primes, given that they are all divisible by 2.</description>
+    </item>
     
     <item>
       <title>Bayes&#39;s rule in practice: CF carrier testing</title>

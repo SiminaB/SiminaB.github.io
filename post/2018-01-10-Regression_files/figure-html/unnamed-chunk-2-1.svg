@@ -40,10 +40,10 @@
 </symbol>
 </g>
 <clipPath id="clip1">
-  <path d="M 59.039063 168 L 402.757813 168 L 402.757813 171 L 59.039063 171 Z M 59.039063 168 "/>
+  <path d="M 59.039063 168 L 401.757813 168 L 401.757813 171 L 59.039063 171 Z M 59.039063 168 "/>
 </clipPath>
 </defs>
-<g id="surface6">
+<g id="surface19">
 <rect x="0" y="0" width="432" height="360" style="fill:rgb(100%,100%,100%);fill-opacity:1;stroke:none;"/>
 <path style="fill:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 224.921875 168.074219 C 224.921875 171.675781 219.519531 171.675781 219.519531 168.074219 C 219.519531 164.476563 224.921875 164.476563 224.921875 168.074219 "/>
 <path style="fill:none;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke:rgb(0%,0%,0%);stroke-opacity:1;stroke-miterlimit:10;" d="M 229.652344 210.871094 C 229.652344 214.472656 224.253906 214.472656 224.253906 210.871094 C 224.253906 207.273438 229.652344 207.273438 229.652344 210.871094 "/>
