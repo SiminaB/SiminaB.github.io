@@ -17,7 +17,7 @@
       <pubDate>Sat, 22 Jun 2019 00:00:00 +0000</pubDate>
       
       <guid>/2019/06/22/the-prime-number-theorem-explorations-in-r/</guid>
-      <description>knitr::opts_chunk$set(echo = TRUE)  Prime numbers A prime number is defined as a number greater than 1 that is only divisible by 1 and itself. Thus, 2, 3, 5, and 7 are all primes, but the following are not:
+      <description>Prime numbersA prime number is defined as a number greater than 1 that is only divisible by 1 and itself.Thus, 2, 3, 5, and 7 are all primes, but the following are not:
 4 = 2 x 2
 6 = 3 x 2
 8 = 2 x 2 x 2

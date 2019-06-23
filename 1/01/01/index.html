@@ -1,83 +1,6 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Hugo 0.53" />
 
 
-<title>The prime number theorem: Explorations in R - Simina blog</title>
-<meta property="og:title" content="The prime number theorem: Explorations in R - Simina blog">
-
-
-
-  
-
-
-
-
-
-
-
-
-<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
-
-
-
-<link rel="stylesheet" href="/css/fonts.css" media="all">
-<link rel="stylesheet" href="/css/main.css" media="all">
-
-
-
-  </head>
-  <body>
-    <div class="wrapper">
-      <header class="header">
-        <nav class="nav">
-  <a href="/" class="nav-logo">
-    <img src="/images/logo.png"
-         width="50"
-         height="50"
-         alt="Logo">
-  </a>
-
-  <ul class="nav-links">
-    
-    <li><a href="https://sites.google.com/georgetown.edu/siminaboca/">Academic site</a></li>
-    
-    <li><a href="https://siminab.github.io/">Blog index</a></li>
-    
-    <li><a href="https://github.com/SiminaB/">GitHub</a></li>
-    
-    <li><a href="https://icbi.georgetown.edu/">ICBI</a></li>
-    
-    <li><a href="https://healthinformatics.georgetown.edu/">MS in HIDS</a></li>
-    
-    <li><a href="https://twitter.com/siminaboca">Twitter</a></li>
-    
-  </ul>
-</nav>
-
-      </header>
-
-
-<main class="content" role="main">
-
-  <article class="article">
-    
-    <span class="article-duration">6 min read</span>
-    
-
-    <h1 class="article-title">The prime number theorem: Explorations in R</h1>
-
-    
-    <span class="article-date">2019/06/22</span>
-    
-
-    <div class="article-content">
-      
-
-
+<p><code>{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE)</code></p>
 <div id="prime-numbers" class="section level2">
 <h2>Prime numbers</h2>
 <p>A prime number is defined as a number greater than 1 that is only divisible by 1 and itself.
@@ -106,154 +29,94 @@ Another way of stating this is that the probability of any integer less than or 
 <h2>Prime numbers in R</h2>
 <p>I was very happy to see that the R statistical programming language actually has a <a href="https://cran.r-project.org/web/packages/primes/index.html">library that deals with primes</a>. I took a look at it and it relies on underlying code written in C++ to do an exhaustive search of whether a number is a prime (when considering a natural number <span class="math inline">\(N\)</span>, you only need to search for primes up to <span class="math inline">\(\sqrt{N}\)</span>), so it’s actually pretty fast!</p>
 <p>We first load the prime library:</p>
-<pre class="r"><code>library(primes)</code></pre>
+<pre class="{r}"><code>library(primes)</code></pre>
 <div id="generate-primes" class="section level3">
 <h3>Generate primes</h3>
 <p>As an example, we generate all primes between 2 and 50:</p>
-<pre class="r"><code>generate_primes(2,50)</code></pre>
-<pre><code>##  [1]  2  3  5  7 11 13 17 19 23 29 31 37 41 43 47</code></pre>
+<pre class="{r}"><code>generate_primes(2,50)</code></pre>
 </div>
 <div id="plot-prime-numbers-on-an-array" class="section level3">
 <h3>Plot prime numbers on an array</h3>
 <p>We can plot prime numbers on an array. Below, we show the first 2,500 numbers as a 50 x 50 array, with the non-primes in grey and the primes in black:</p>
-<pre class="r"><code>library(ggplot2)</code></pre>
-<pre><code>## Registered S3 methods overwritten by &#39;ggplot2&#39;:
-##   method         from 
-##   [.quosures     rlang
-##   c.quosures     rlang
-##   print.quosures rlang</code></pre>
-<pre class="r"><code>##Make a 50 x 50 array
+<pre class="{r}"><code>library(ggplot2)
+
+##Make a 50 x 50 array
 array_50_50 &lt;- expand.grid(Row=1:50,Column=1:50)
 ##add the numbers corresponding to cells
 array_50_50$Number &lt;- 1:50^2
 ##add whether each number is a prime
 array_50_50$Prime &lt;- is_prime(array_50_50$Number)
-head(array_50_50)</code></pre>
-<pre><code>##   Row Column Number Prime
-## 1   1      1      1 FALSE
-## 2   2      1      2  TRUE
-## 3   3      1      3  TRUE
-## 4   4      1      4 FALSE
-## 5   5      1      5  TRUE
-## 6   6      1      6 FALSE</code></pre>
-<pre class="r"><code>ggplot(array_50_50, aes(Column, Row, col=Prime)) +
+head(array_50_50)
+
+ggplot(array_50_50, aes(Column, Row, col=Prime)) +
   geom_point() +
-  scale_color_manual(values=c(&quot;grey&quot;, &quot;black&quot;))</code></pre>
-<p><img src="/post/2019-06-22-the-prime-number-theorem-explorations-in-r_files/figure-html/unnamed-chunk-3-1.svg" width="576" /></p>
+  scale_color_manual(values=c(&quot;grey&quot;, &quot;black&quot;))
+</code></pre>
 </div>
 <div id="explore-the-prime-number-theorem-in-r" class="section level3">
 <h3>Explore the prime number theorem in R</h3>
 <p>The prime number theorem gives us an idea of the density of primes among all numbers, so the density of the black dots among all dots.
-The actual number of primes in the array above is 367, whereas the number
-predicted by the prime number theorem is 2500/log(2500) = 319.5277733.
+The actual number of primes in the array above is <code>r sum(array_50_50$Prime)</code>, whereas the number
+predicted by the prime number theorem is 2500/log(2500) = <code>r 2500/log(2500)</code>.
 To understand the theorem a bit better, we can create function to obtain the number of primes less than or equal to a certain value:</p>
-<pre class="r"><code>pi_nr_primes &lt;- function(x)
+<pre class="{r}"><code>pi_nr_primes &lt;- function(x)
 {
   sapply(x, function(x){length(generate_primes(1,x))})
 }</code></pre>
 <p>We now plot <span class="math inline">\(\pi(x)\)</span> for values between 2 and 2,500, with the orange line indicating the identity line:</p>
-<pre class="r"><code>x &lt;- 2:2500
+<pre class="{r}"><code>x &lt;- 2:2500
 
 plot(pi_nr_primes(x) ~ x,
      ylab=expression(pi(x)))
 abline(0,1, col=&quot;#E69F00&quot;, lwd=2)
 text(350,200, &quot;y=x&quot;, col=&quot;#E69F00&quot;)</code></pre>
-<p><img src="/post/2019-06-22-the-prime-number-theorem-explorations-in-r_files/figure-html/unnamed-chunk-5-1.svg" width="576" /></p>
 <p>We add <span class="math inline">\(x/log(x)\)</span> to the plot in blue:</p>
-<pre class="r"><code>x_over_log_x &lt;- x/log(x)
+<pre class="{r}"><code>x_over_log_x &lt;- x/log(x)
 
 plot(pi_nr_primes(x) ~ x,
      ylab=expression(pi(x)))
 abline(0,1, col=&quot;#E69F00&quot;, lwd=2)
 lines(x_over_log_x ~ x, col=&quot;#56B4E9&quot;,lwd=2)
 text(350,200, &quot;y=x&quot;, col=&quot;#E69F00&quot;)
-text(1000,100, &quot;y=x/log(x)&quot;, col=&quot;#56B4E9&quot;)</code></pre>
-<p><img src="/post/2019-06-22-the-prime-number-theorem-explorations-in-r_files/figure-html/unnamed-chunk-6-1.svg" width="576" /></p>
+text(1000,100, &quot;y=x/log(x)&quot;, col=&quot;#56B4E9&quot;)
+</code></pre>
 <p>It does not look like <span class="math inline">\(\pi(x)\)</span> gets closer to <span class="math inline">\(x/log(x)\)</span> as <span class="math inline">\(x\)</span> increases, but note that the prime number theorem is actually about their <em>ratio</em>, not their <em>difference.</em> As a result, we plot the ratio instead, with the green line indicating 1:</p>
-<pre class="r"><code>y &lt;- pi_nr_primes(x)/x_over_log_x
+<pre class="{r}"><code>y &lt;- pi_nr_primes(x)/x_over_log_x
 plot(y ~ x,
      ylab=expression(pi(x)/(x/log(x))))
-abline(h=1, col=&quot;#009E73&quot;, lwd=2)</code></pre>
-<p><img src="/post/2019-06-22-the-prime-number-theorem-explorations-in-r_files/figure-html/unnamed-chunk-7-1.svg" width="576" /></p>
-<p>It still looks like <span class="math inline">\(\pi(x)/[x/log(x)]\)</span> may flatten i.e. asymptote at a value higher than 1. In fact, pi(2500)/[2500/log(2500)] = 1.14857. If we go up to 10,000,
-however, we get 1.1319508. At 1,000,000, it becomes
-1.0844899 and at a 100,000,000 (warning! this takes 40 seconds on my laptop) it becomes 1.0612992. I’m not sure we can really get to much higher numbers than that in R, but we know for a fact from graduate-level number theory that the limit is indeed 1 as x goes to infinity.</p>
+abline(h=1, col=&quot;#009E73&quot;, lwd=2)
+</code></pre>
+<p>It still looks like <span class="math inline">\(\pi(x)/[x/log(x)]\)</span> may flatten i.e. asymptote at a value higher than 1. In fact, pi(2500)/[2500/log(2500)] = <code>r pi_nr_primes(2500)/(2500/log(2500))</code>. If we go up to 10,000,
+however, we get <code>r pi_nr_primes(10000)/(10000/log(10000))</code>. At 1,000,000, it becomes
+<code>r pi_nr_primes(10^6)/(10^6/log(10^6))</code> and at a 100,000,000 (warning! this takes 40 seconds on my laptop) it becomes <code>r pi_nr_primes(10^8)/(10^8/log(10^8))</code>. I’m not sure we can really get to much higher numbers than that in R, but we know for a fact from graduate-level number theory that the limit is indeed 1 as x goes to infinity.</p>
 <p>It would not make sense to make a plot for all points up to 100,000,000, because it would take an extraordinarily long time and also we would get a lot of overlapping points. Instead, we could randomly sample 2,500 points between 1 and 100,000,000 and make this plot for them. That was also causing my laptop to massively stall, so I had to be happy with looking at 1 to 1,000,000 (which also took over 1 minute to run):</p>
-<pre class="r"><code>x &lt;- 1:(10^6)
+<pre class="{r}"><code>x &lt;- 1:(10^6)
 set.seed(31048) ##set the seed so the same numbers are sampled each time
 x_sample &lt;- sample(x, 2500)
 x_over_log_x_sample &lt;- x_sample/log(x_sample)
 
 y &lt;- pi_nr_primes(x_sample)/x_over_log_x_sample</code></pre>
 <p>If we plot this to be on the same scale as before, it can be hard to see the decrease:</p>
-<pre class="r"><code>plot(y ~ x_sample,
+<pre class="{r}"><code>plot(y ~ x_sample,
      ylab=expression(pi(x)/(x/log(x))),
      ylim=c(0,max(pi_nr_primes(2:2500)/(2:2500/log(2:2500)))))
 abline(h=1, col=&quot;#009E73&quot;, lwd=2)</code></pre>
-<p><img src="/post/2019-06-22-the-prime-number-theorem-explorations-in-r_files/figure-html/unnamed-chunk-9-1.svg" width="576" /></p>
 <p>However, if we plot just the values over 2,500, it is easier to see that there is an overall decrease, until it gets between 1.08 and 1.09:</p>
-<pre class="r"><code>plot(y[x_sample &gt; 2500] ~ x_sample[x_sample &gt; 2500],
+<pre class="{r}"><code>plot(y[x_sample &gt; 2500] ~ x_sample[x_sample &gt; 2500],
      ylab=expression(pi(x)/(x/log(x))))
 abline(h=1, col=&quot;#009E73&quot;, lwd=2)</code></pre>
-<p><img src="/post/2019-06-22-the-prime-number-theorem-explorations-in-r_files/figure-html/unnamed-chunk-10-1.svg" width="576" /></p>
 </div>
 <div id="probability-interpretation-of-the-prime-number-theorem-in-r" class="section level3">
 <h3>Probability interpretation of the prime number theorem in R</h3>
 <p>Let’s also take a quick look at the probability interpretation of the prime number theorem.
 Thus, let’s sample 10,000 numbers with replacement from the first 2,500 numbers:</p>
-<pre class="r"><code>set.seed(4028502)
+<pre class="{r}"><code>set.seed(4028502)
 sample_from_1_to_2500 &lt;- sample(1:2500, 10000, replace = TRUE)</code></pre>
-<p>The probability that each sampled number is a prime is exactly <span class="math inline">\(\pi(2500)/2500\)</span> = 0.1468 but it can also be approximated as the number of “successes” in 10,000
+<p>The probability that each sampled number is a prime is exactly <span class="math inline">\(\pi(2500)/2500\)</span> = <code>r pi_nr_primes(2500)/2500</code> but it can also be approximated as the number of “successes” in 10,000
 trials, where a “success” is being a prime number. We can do this as follows:</p>
-<pre class="r"><code>sample_of_primes &lt;- is_prime(sample_from_1_to_2500)
+<pre class="{r}"><code>sample_of_primes &lt;- is_prime(sample_from_1_to_2500)
 sum(sample_of_primes)/10000</code></pre>
-<pre><code>## [1] 0.1448</code></pre>
-<p>This number is close to 0.1468. The approximation from the prime number is
-1/log(2500) = 0.1278111.</p>
+<p>This number is close to <code>r pi_nr_primes(2500)/2500</code>. The approximation from the prime number is
+1/log(2500) = <code>r 1/log(2500)</code>.</p>
 </div>
 </div>
-
-    </div>
-  </article>
-
-  
-
-
-</main>
-
-      <footer class="footer">
-        <ul class="footer-links">
-          <li>
-            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
-          </li>
-          <li>
-            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
-          </li>
-        </ul>
-      </footer>
-
-    </div>
-    
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
-
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
-
-
-
-    
-<script src="/js/math-code.js"></script>
-<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-
-
-    
-  </body>
-</html>
-
