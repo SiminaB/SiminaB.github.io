@@ -65,7 +65,7 @@
 
   <article class="article">
     
-    <span class="article-duration">6 min read</span>
+    <span class="article-duration">7 min read</span>
     
 
     <h1 class="article-title">A simulation approach to understanding Coronavirus mortality</h1>
@@ -83,26 +83,42 @@
 <p>Another – perhaps less appreciated – issue with estimating death rates is with the <em>numerator</em>: We know that an individual who eventually dies of Coronavirus will almost certainly not die right upon being diagnosed. Assume for example that we have tested all individuals and we know for certain that no one else will be infected in a certain community (perhaps because everyone is already infected!). We can count how many people have died by the time the last infection is caught and thus get an estimate of mortality. Should be fine, right? Well no… because it can still take weeks for infected individuals to actually die. I wasn’t smart enough to figure this out myself, but others who work in this area <a href="https://www.medrxiv.org/content/10.1101/2020.03.04.20031104v1.full.pdf">have been</a>. Also, now when I look at the stats on <a href="https://www.worldometers.info/coronavirus/">Worldometers</a>, I keep being struck by countries that have it mostly “under control” but where the rate of (new deaths)/(new cases) is very high.
 For example, on March 19, 2020 at 10:39 AM ET, there were 34 new cases reported in China and 8 new deaths – that’s a 25% fatality rate! Except it’s not, because clearly most (probably all) those new deaths are from previously diagnosed cases.</p>
 <p>So I did the only thing I could in this case, in order to get a better grasp on what could be going on… I simulated some data. Here is a simulated population of 1,000,000 <em>infected</em> individuals who each have a 3% chance of dying from the diseases. Since this is a random independent Bernoulli draw for each individual, the overall proportion will not be exactly 3%, but should be very close to it for such a big sample size:</p>
-<pre class="r"><code>set.seed(840526) ## set the seed so you get the same results as me if you want to rerun this
-pop_size &lt;- 10^6 ## population size
-prob_death &lt;- 3/100 ## chance of dying for each individual
-pop_deaths &lt;- rbinom(pop_size, 1, prob_death) ## 0 if dies of coronavirus, 1 if does not die
-mean(pop_deaths) ## just a basic check that the proportion of deaths is close to 2%</code></pre>
+<pre class="r"><code>## set the seed
+## this makes you get the same results as me if you rerun this
+set.seed(840526) 
+## population size
+pop_size &lt;- 10^6 
+## chance of dying for each individual
+prob_death &lt;- 3/100 
+## 0 if dies of coronavirus, 1 if does not die
+pop_deaths &lt;- rbinom(pop_size, 1, prob_death) 
+## basic check that the proportion of deaths is close to 2%
+mean(pop_deaths) </code></pre>
 <pre><code>## [1] 0.029727</code></pre>
-<pre class="r"><code>number_deaths &lt;- sum(pop_deaths) ## saving the number of deaths so I don&#39;t have to keep calculating it later</code></pre>
+<pre class="r"><code>## save the number of deaths 
+## this way I don&#39;t have to keep calculating it later
+number_deaths &lt;- sum(pop_deaths) </code></pre>
 <p>Next I simulated the survival time from Coronavirus. This is a super simple model where everyone gets infected at the same time, which is of course unrealistic. In the simulation, the 97% of individuals who will never die of Coronavirus have a survival time of infinity (they don’t live forever of course, but it doesn’t matter for this simulation), while the ones who do die have a survival time that is drawn from a Uniform(0,14) distribution, indicating that they can die at any point between 0 and 14 days (if there is a better distribution to use, please let me know and/or try it yourself):</p>
-<pre class="r"><code>surv_Covid &lt;- rep(Inf, length=pop_size) ## initialize survival time to infinity for everyone
-surv_Covid[pop_deaths == 1] &lt;- runif(number_deaths, 0, 14) ## change survival time for individuals to die to draw from a Uniform(0,14)
+<pre class="r"><code>## initialize survival time to infinity for everyone
+surv_Covid &lt;- rep(Inf, length=pop_size) 
+## change survival time for individuals:
+## draw from a Uniform(0,14) for them
+surv_Covid[pop_deaths == 1] &lt;- runif(number_deaths, 0, 14)
+## check the histogram 
+##  (infinite survival times are automatically excluded)
 hist(surv_Covid, col = &quot;grey&quot;, 
      main=&quot;Survival time for individuals who die of Coronavirus&quot;,
-     xlab=&quot;Survival time (in days)&quot;) ## check the histogram (individuals with infinite survival are automatically excluded)</code></pre>
+     xlab=&quot;Survival time (in days)&quot;) </code></pre>
 <p><img src="/post/2020-03-19-a-simulation-approach-to-understand-coronavirus-mortality_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <p>Let’s see what happens if we estimate the mortality at day 0, day 1, all the way up to day 14, assuming that everyone is tested on day 1. I’m lazy and I’m going to write a loop. If you’re offended by seeing a loop in R, then I apologize in advance.</p>
-<pre class="r"><code>mortality_by_day &lt;- rep(NA, 15) ## initialize mortality vector for each day (0-14)
-for(day in 0:14) ## calculate mortality by day in this population
+<pre class="r"><code>## initialize mortality vector for each day (0-14)
+mortality_by_day &lt;- rep(NA, 15) 
+## calculate mortality by day in this population
+for(day in 0:14) 
 {
   mortality_by_day[day+1] &lt;- sum(surv_Covid &lt;= day)/pop_size
 }
+## make the plot of estimated mortality by day
 plot(mortality_by_day, 
      xlab = &quot;Day&quot;,
      ylab = &quot;Mortality estimate&quot;,
@@ -111,28 +127,39 @@ plot(mortality_by_day,
 Of course, on day 14, the mortality estimate is very close to 3%, being exactly equal to the proportion of deaths. But if we look on day 3, the mortality estimate would be 0.6%. It actually increases almost linearly by day due to the uniform distribution we sampled from. Thus, we expect the death rates to increase even for countries like South Korea that did much more testing much earlier than the US, though they are still expected to be lower than in countries like Italy, whose healthcare system was massively overrun by the sudden large number of cases, even when adjusting for age.</p>
 <p>As I said before, this is a highly simplified model and many other scenarios could be considered.
 Let’s consider one additional scenario where instead of testing everyone, we end up testing individuals who are sicker and more likely to die overall. Thus, suppose we’re testing 80% of the individuals who end up dying and 50% of the individuals who end up not dying.</p>
-<pre class="r"><code>tested_individuals_alive &lt;- sample(which(pop_deaths==0), size = round(0.5*(pop_size-number_deaths)))
-## sample of tested individuals among those who do not die
+<pre class="r"><code>## sample of tested individuals among those who do not die
+tested_individuals_alive &lt;- 
+  sample(which(pop_deaths==0), 
+         size = round(0.5*(pop_size-number_deaths)))
+## number of such individuals
 length(tested_individuals_alive)</code></pre>
 <pre><code>## [1] 485136</code></pre>
-<pre class="r"><code>## number of such individuals
-
-tested_individuals_dead &lt;- sample(which(pop_deaths==1), size = round(0.8*number_deaths))
-## sample of tested individuals among those who do die
+<pre class="r"><code>## sample of tested individuals among those who do die
+tested_individuals_dead &lt;- 
+  sample(which(pop_deaths==1), 
+         size = round(0.8*number_deaths))
+## number of such individuals
 length(tested_individuals_dead)</code></pre>
 <pre><code>## [1] 23782</code></pre>
-<pre class="r"><code>## number of such individuals
-
-tested_individuals &lt;- c(tested_individuals_alive, tested_individuals_dead) ## all tested individuals
-death_tested &lt;- pop_deaths[tested_individuals] ## deaths among all tested individuals
-surv_Covid_tested &lt;- surv_Covid[tested_individuals] ## survival among all tested individuals
+<pre class="r"><code>## all tested individuals
+tested_individuals &lt;- c(tested_individuals_alive, 
+                        tested_individuals_dead) 
+## deaths among all tested individuals
+death_tested &lt;- pop_deaths[tested_individuals] 
+## survival among all tested individuals
+surv_Covid_tested &lt;- surv_Covid[tested_individuals] 
+## number of tested individuals
 pop_size_tested &lt;- length(tested_individuals)</code></pre>
 <p>In this case, we will not be including the individuals who die of Coronavirus but are never tested. This is likely to occur in reality for at least some individuals as well. Let’s look at the mortality estimates now:</p>
-<pre class="r"><code>mortality_by_day_subsample &lt;- rep(NA, 15) ## initialize mortality vector for each day (0-14)
-for(day in 0:14) ## calculate mortality by day in this population
+<pre class="r"><code>## initialize mortality vector for each day (0-14)
+mortality_by_day_subsample &lt;- rep(NA, 15) 
+## calculate mortality by day in this population
+for(day in 0:14) 
 {
-  mortality_by_day_subsample[day+1] &lt;- sum(surv_Covid_tested &lt;= day)/pop_size_tested
+  mortality_by_day_subsample[day+1] &lt;- 
+    sum(surv_Covid_tested &lt;= day)/pop_size_tested
 }
+## make the plot of estimated mortality by day
 plot(mortality_by_day_subsample, 
      xlab = &quot;Day&quot;,
      ylab = &quot;Mortality estimate&quot;,
