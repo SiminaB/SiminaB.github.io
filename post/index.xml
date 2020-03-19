@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Simina blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A simulation approach to understanding Coronavirus mortality</title>
+      <link>/2020/03/19/a-simulation-approach-to-understand-coronavirus-mortality/</link>
+      <pubDate>Thu, 19 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/2020/03/19/a-simulation-approach-to-understand-coronavirus-mortality/</guid>
+      <description>With the Coronavirus crisis currently being a global emergency, one question that has been asked over and over again is “What is the chance of dying if I contract this virus?” This is not an easy question to answer and we know that it depends on issues like an individual’s age (older individuals are much more likely to be affected than younger individuals) and how well a specific country’s healthcare system is working (including how overburdened it is during the current crisis).</description>
+    </item>
     
     <item>
       <title>The prime number theorem: Explorations in R</title>
